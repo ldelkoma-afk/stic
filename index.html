@@ -3,151 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📰 오늘의 뉴스 브리핑 · 2026.04.04</title>
-<meta property="og:title" content="📰 오늘의 뉴스 브리핑 · 2026.04.04">
-<meta property="og:description" content="AI · 유튜브 · 마케팅 최신 뉴스 9선">
+<title>🤖 AI 직장인 브리핑 · 2026.04.04</title>
+<meta property="og:title" content="🤖 AI 직장인 브리핑 · 2026.04.04">
+<meta property="og:description" content="AI 신기술 · 업무자동화 · AI마케팅 · AI툴 최신 뉴스 12선">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=DM+Mono:wght@400;500&display=swap');
   :root {
-    --bg: #0f0e0c; --card: #1a1916; --border: #2e2c28;
-    --accent-ai: #f5c842; --accent-yt: #ff4444; --accent-mk: #4af0a0;
-    --text: #f0ece0; --muted: #8a8678; --num: #3a3830;
+    --bg:#0f0e0c; --card:#1a1916; --border:#2e2c28;
+    --c1:#f5c842; --c2:#4af0a0; --c3:#ff7043; --c4:#64b5f6;
+    --text:#f0ece0; --muted:#8a8678; --num:#3a3830;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); color: var(--text); font-family: 'Noto Serif KR', serif; min-height: 100vh; padding: 0 0 80px; }
-  .header { padding: 48px 24px 32px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
-  .header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%); pointer-events: none; }
-  .date-tag { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; }
-  h1 { font-size: clamp(28px, 7vw, 42px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
-  h1 span { color: var(--accent-ai); }
-  .subtitle { margin-top: 10px; font-size: 14px; color: var(--muted); }
-  .section { padding: 32px 24px 0; opacity: 0; transform: translateY(16px); animation: fadeUp 0.5s forwards; }
-  .section:nth-child(2) { animation-delay: 0.1s; }
-  .section:nth-child(3) { animation-delay: 0.2s; }
-  .section:nth-child(4) { animation-delay: 0.3s; }
-  @keyframes fadeUp { to { opacity: 1; transform: none; } }
-  .cat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-  .cat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .cat-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
-  .cat-line { flex: 1; height: 1px; background: var(--border); }
-  .cards { display: flex; flex-direction: column; gap: 2px; }
-  .card { background: var(--card); border-radius: 4px; padding: 20px; display: grid; grid-template-columns: 40px 1fr; gap: 0 14px; transition: background 0.2s; }
-  .card:hover { background: #211f1c; }
-  .card-num { font-family: 'DM Mono', monospace; font-size: 28px; font-weight: 500; color: var(--num); line-height: 1; padding-top: 2px; text-align: right; }
-  .card-title { font-size: 15px; font-weight: 700; line-height: 1.45; margin-bottom: 6px; }
-  .card-summary { font-size: 13px; color: var(--muted); line-height: 1.6; }
-  .card-summary::before { content: '→ '; font-family: 'DM Mono', monospace; }
-  .ai .card:hover .card-title { color: var(--accent-ai); }
-  .yt .card:hover .card-title { color: var(--accent-yt); }
-  .mk .card:hover .card-title { color: var(--accent-mk); }
-  .footer { margin: 40px 24px 0; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .footer-left { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; }
-  .share-btn { display: inline-flex; align-items: center; gap: 8px; background: #FAE100; color: #3A1D1D; font-family: 'Noto Serif KR', serif; font-weight: 700; font-size: 14px; padding: 10px 20px; border-radius: 50px; border: none; cursor: pointer; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
-  .share-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(250,225,0,0.3); }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:'Noto Serif KR',serif;min-height:100vh;padding:0 0 80px;}
+  .header{padding:48px 24px 32px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+  .header::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(245,200,66,0.12) 0%,transparent 70%);pointer-events:none;}
+  .date-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;}
+  h1{font-size:clamp(26px,6vw,40px);font-weight:900;line-height:1.1;letter-spacing:-.02em;}
+  h1 span{color:var(--c1);}
+  .subtitle{margin-top:10px;font-size:13px;color:var(--muted);}
+  .section{padding:28px 24px 0;opacity:0;transform:translateY(16px);animation:fadeUp .5s forwards;}
+  .section:nth-child(2){animation-delay:.1s;}
+  .section:nth-child(3){animation-delay:.2s;}
+  .section:nth-child(4){animation-delay:.3s;}
+  .section:nth-child(5){animation-delay:.4s;}
+  @keyframes fadeUp{to{opacity:1;transform:none;}}
+  .cat-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .cat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .cat-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;}
+  .cat-line{flex:1;height:1px;background:var(--border);}
+  .cards{display:flex;flex-direction:column;gap:2px;}
+  .card{background:var(--card);border-radius:4px;padding:18px 20px;display:grid;grid-template-columns:36px 1fr;gap:0 14px;transition:background .2s;}
+  .card:hover{background:#211f1c;}
+  .card-num{font-family:'DM Mono',monospace;font-size:24px;font-weight:500;color:var(--num);line-height:1;padding-top:2px;text-align:right;}
+  .card-title{font-size:14px;font-weight:700;line-height:1.5;margin-bottom:5px;}
+  .card-summary{font-size:12px;color:var(--muted);line-height:1.6;}
+  .card-summary::before{content:'→ ';font-family:'DM Mono',monospace;}
+  .footer{margin:40px 24px 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .footer-left{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.1em;}
+  .share-btn{display:inline-flex;align-items:center;gap:8px;background:#FAE100;color:#3A1D1D;font-family:'Noto Serif KR',serif;font-weight:700;font-size:14px;padding:10px 20px;border-radius:50px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;}
+  .share-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(250,225,0,.3);}
 </style>
 </head>
 <body>
 <div class="header">
-  <div class="date-tag">NEWS BRIEFING · 2026.04.04 SAT</div>
-  <h1>오늘의<br><span>뉴스 브리핑</span></h1>
-  <div class="subtitle">AI · 유튜브 · 마케팅 최신 뉴스 9선</div>
+  <div class="date-tag">AI BRIEFING FOR WORKERS · 2026.04.04 SAT</div>
+  <h1>직장인<br><span>AI 브리핑</span></h1>
+  <div class="subtitle">AI 신기술 · 업무자동화 · AI마케팅 · AI툴 최신 뉴스 12선</div>
 </div>
 
-<div class="section ai">
+<div class="section">
   <div class="cat-header">
-    <div class="cat-dot" style="background:var(--accent-ai)"></div>
-    <span class="cat-label" style="color:var(--accent-ai)">🤖 AI</span>
+    <div class="cat-dot" style="background:var(--c1)"></div>
+    <span class="cat-label" style="color:var(--c1)">🤖 AI 신기술 동향</span>
     <div class="cat-line"></div>
   </div>
   <div class="cards">
     <div class="card">
       <div class="card-num">01</div>
       <div>
-        <div class="card-title">포스코DX, 국산 NPU로 산업 현장 AI 전환 추진</div>
-        <div class="card-summary">국산 신경망처리장치 활용해 제조 현장 인공지능 전환에 나서며 GPU 중심 구조에서 변화 추진</div>
+        <div class="card-title">포스코DX, 국산 NPU로 제조 현장 AI 전환 추진</div>
+        <div class="card-summary">국산 신경망처리장치를 활용해 GPU 중심에서 벗어나 전력효율성과 비용절감을 통한 산업 현장 AI 도입 확산</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">02</div>
       <div>
-        <div class="card-title">한국연구재단, 인공지능 위원회 구성으로 연구관리 혁신 본격 추진</div>
-        <div class="card-summary">전사적 AI 전환과 연구관리 혁신을 위한 NRF 인공지능 위원회 첫 회의 개최</div>
+        <div class="card-title">퓨리오사AI, RNGD 2세대 NPU 상업 운영 본격 시작</div>
+        <div class="card-summary">4000대 초도 물량 확보하며 AI 추론 처리 최적화에 특화된 국산 AI 반도체 기술의 실전 적용 가속화</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">03</div>
       <div>
-        <div class="card-title">2026 게임콘텐츠 제작지원, AI 분야 과제당 최대 3억원 지원</div>
-        <div class="card-summary">한국콘텐츠진흥원이 AI 게임플레이 활용 프로젝트에 9개 내외 과제 선정 예정</div>
+        <div class="card-title">2026년 AI 5대 핵심 트렌드 전망</div>
+        <div class="card-summary">에이전틱 AI, 피지컬 AI, 소버린 AI, 인프라 전쟁, 책임 있는 AI가 사회 전반을 혁신할 핵심 동력으로 부상</div>
       </div>
     </div></div>
 </div>
 
-<div class="section yt">
+<div class="section">
   <div class="cat-header">
-    <div class="cat-dot" style="background:var(--accent-yt)"></div>
-    <span class="cat-label" style="color:var(--accent-yt)">📺 유튜브</span>
+    <div class="cat-dot" style="background:var(--c2)"></div>
+    <span class="cat-label" style="color:var(--c2)">⚡ 업무 자동화</span>
     <div class="cat-line"></div>
   </div>
   <div class="cards">
     <div class="card">
       <div class="card-num">04</div>
       <div>
-        <div class="card-title">'시각장애 유튜버' 김한솔, 7년째 악플에 억울함 호소</div>
-        <div class="card-summary">안 보이는 척 대국민 사기극 논란에 시달리며 원샷한솔 채널 운영하는 시각장애 유튜버의 고충</div>
+        <div class="card-title">AI 에이전트 중심의 업무 자동화 시스템 구축</div>
+        <div class="card-summary">멀티 에이전트 협업으로 업무 프로세스 전체를 담당하는 지능형 시스템 도입해 효율성 극대화</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">05</div>
       <div>
-        <div class="card-title">연예인처럼 장관 가방 즉석 공개하는 복지부의 유튜브 콘텐츠</div>
-        <div class="card-summary">복지부가 연예인 스타일로 가방 속 물건을 공개하는 유튜브 영상 제작으로 화제</div>
+        <div class="card-title">회계·재무 업무 AI 자동화 성공 사례</div>
+        <div class="card-summary">법인카드 지출 내역 분류와 오남용 탐지를 AI가 자동 처리하여 인력과 시간 투입 대폭 절감</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">06</div>
       <div>
-        <div class="card-title">YTN, 밀덕스 채널 유튜브 콘텐츠 외주제작 공모</div>
-        <div class="card-summary">2026년 밀덕스 채널 유튜브 콘텐츠 외주제작 공모사업 진행</div>
+        <div class="card-title">DevOps AI 기반 의사결정 자동화 혁신</div>
+        <div class="card-summary">운영 데이터 해석부터 장애 대응까지 AI가 스스로 판단해 처리하는 지능형 DevOps 시스템 등장</div>
       </div>
     </div></div>
 </div>
 
-<div class="section mk">
+<div class="section">
   <div class="cat-header">
-    <div class="cat-dot" style="background:var(--accent-mk)"></div>
-    <span class="cat-label" style="color:var(--accent-mk)">📣 마케팅</span>
+    <div class="cat-dot" style="background:var(--c3)"></div>
+    <span class="cat-label" style="color:var(--c3)">📣 AI 마케팅</span>
     <div class="cat-line"></div>
   </div>
   <div class="cards">
     <div class="card">
       <div class="card-num">07</div>
       <div>
-        <div class="card-title">GM코리아, 4개 브랜드 체제로 마케팅 전략 전환</div>
-        <div class="card-summary">유튜브·SNS 중심 디지털 채널 전략과 트랙스 크로스오버 미드나잇 에디션 격월 시승 이벤트 제시</div>
+        <div class="card-title">메타, AI 광고 제작·타겟팅 전과정 자동화 완성</div>
+        <div class="card-summary">2026년까지 제품 이미지와 예산만 입력하면 광고 전 과정을 AI가 수행하는 시스템 구축</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">08</div>
       <div>
-        <div class="card-title">크루즈 선사별 2026년 4월 프로모션 최대 900달러 할인</div>
-        <div class="card-summary">폴리트립스를 통한 크루즈 예약시 항해별 최대 900달러 즉시할인 프로모션 진행</div>
+        <div class="card-title">AI 답변 최적화(AEO·GEO) 마케팅 신기준 부상</div>
+        <div class="card-summary">키워드 SEO를 넘어 ChatGPT, Gemini 등 AI 답변에 브랜드 노출하는 생성형 엔진 최적화 전략 확산</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">09</div>
       <div>
-        <div class="card-title">K-뷰티, 호주 시장에서 수입국 2위로 급부상</div>
-        <div class="card-summary">한국이 호주 화장품 수입국 2위로 올라서며 2026년 이후 최대 수입국 등극 가능성</div>
+        <div class="card-title">크리에이터 Co-Creation과 AI 프로듀싱 결합</div>
+        <div class="card-summary">AI 기술로 콘텐츠 제작 자동화하고 크리에이터와 공동 제작하는 새로운 마케팅 생태계 구축</div>
+      </div>
+    </div></div>
+</div>
+
+<div class="section">
+  <div class="cat-header">
+    <div class="cat-dot" style="background:var(--c4)"></div>
+    <span class="cat-label" style="color:var(--c4)">🛠️ AI 툴 리뷰</span>
+    <div class="cat-line"></div>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-num">10</div>
+      <div>
+        <div class="card-title">Claude 코딩 성능 압도적 1위, 개발자 필수 도구</div>
+        <div class="card-summary">복잡한 리팩토링과 코드 리뷰에서 가장 신뢰성 높은 결과 제공해 개발자들 사이 사실상 표준으로 자리잡음</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-num">11</div>
+      <div>
+        <div class="card-title">ChatGPT vs Claude vs Gemini 특성별 활용 가이드</div>
+        <div class="card-summary">ChatGPT는 범용성, Claude는 긴 글 처리, Gemini는 구글 연동 강점으로 업무별 맞춤 선택 필요</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-num">12</div>
+      <div>
+        <div class="card-title">2026년 AI 툴 조합 활용법이 승부 가르는 시대</div>
+        <div class="card-summary">단일 AI 의존보다 업무별 최적 모델 조합 사용해 비용 효율성과 성과 극대화하는 전략 필수</div>
       </div>
     </div></div>
 </div>
 
 <div class="footer">
   <div class="footer-left">AUTO-GENERATED · POWERED BY CLAUDE AI</div>
-  <button class="share-btn" onclick="copyLink()">
-    🔗 링크 복사
-  </button>
+  <button class="share-btn" onclick="copyLink()">🔗 링크 복사</button>
 </div>
 <script>
   function copyLink() {
