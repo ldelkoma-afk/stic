@@ -4,7 +4,6 @@ import json
 import re
 import os
 
-# 오늘 날짜
 today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
 date_str = today.strftime("%Y.%m.%d")
 day_str = ["MON","TUE","WED","THU","FRI","SAT","SUN"][today.weekday()]
@@ -95,51 +94,175 @@ html = f"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🤖 AI 직장인 브리핑 · {date_str}</title>
-<meta property="og:title" content="🤖 AI 직장인 브리핑 · {date_str}">
+<title>AI 직장인 브리핑 · {date_str}</title>
+<meta property="og:title" content="AI 직장인 브리핑 · {date_str}">
 <meta property="og:description" content="AI 신기술 · 업무자동화 · AI마케팅 · AI툴 최신 뉴스 12선">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=DM+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
   :root {{
-    --bg:#0f0e0c; --card:#1a1916; --border:#2e2c28;
-    --c1:#f5c842; --c2:#4af0a0; --c3:#ff7043; --c4:#64b5f6;
-    --text:#f0ece0; --muted:#8a8678; --num:#3a3830;
+    --bg: #f7f6f2;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --border-md: rgba(0,0,0,0.13);
+    --text: #1a1a18;
+    --muted: #72706a;
+    --hint: #a8a59e;
+    --c1: #3B6D11;
+    --c2: #185FA5;
+    --c3: #993C1D;
+    --c4: #534AB7;
+    --radius: 8px;
   }}
-  *{{margin:0;padding:0;box-sizing:border-box;}}
-  body{{background:var(--bg);color:var(--text);font-family:'Noto Serif KR',serif;min-height:100vh;padding:0 0 80px;}}
-  .header{{padding:48px 24px 32px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}}
-  .header::before{{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(245,200,66,0.12) 0%,transparent 70%);pointer-events:none;}}
-  .date-tag{{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;}}
-  h1{{font-size:clamp(26px,6vw,40px);font-weight:900;line-height:1.1;letter-spacing:-.02em;}}
-  h1 span{{color:var(--c1);}}
-  .subtitle{{margin-top:10px;font-size:13px;color:var(--muted);}}
-  .section{{padding:28px 24px 0;opacity:0;transform:translateY(16px);animation:fadeUp .5s forwards;}}
-  .section:nth-child(2){{animation-delay:.1s;}}
-  .section:nth-child(3){{animation-delay:.2s;}}
-  .section:nth-child(4){{animation-delay:.3s;}}
-  .section:nth-child(5){{animation-delay:.4s;}}
-  @keyframes fadeUp{{to{{opacity:1;transform:none;}}}}
-  .cat-header{{display:flex;align-items:center;gap:10px;margin-bottom:14px;}}
-  .cat-dot{{width:8px;height:8px;border-radius:50%;flex-shrink:0;}}
-  .cat-label{{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;}}
-  .cat-line{{flex:1;height:1px;background:var(--border);}}
-  .cards{{display:flex;flex-direction:column;gap:2px;}}
-  .card{{background:var(--card);border-radius:4px;padding:18px 20px;display:grid;grid-template-columns:36px 1fr;gap:0 14px;transition:background .2s;}}
-  .card:hover{{background:#211f1c;}}
-  .card-num{{font-family:'DM Mono',monospace;font-size:24px;font-weight:500;color:var(--num);line-height:1;padding-top:2px;text-align:right;}}
-  .card-title{{font-size:14px;font-weight:700;line-height:1.5;margin-bottom:5px;}}
-  .card-summary{{font-size:12px;color:var(--muted);line-height:1.6;}}
-  .card-summary::before{{content:'→ ';font-family:'DM Mono',monospace;}}
-  .footer{{margin:40px 24px 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}}
-  .footer-left{{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.1em;}}
-  .share-btn{{display:inline-flex;align-items:center;gap:8px;background:#FAE100;color:#3A1D1D;font-family:'Noto Serif KR',serif;font-weight:700;font-size:14px;padding:10px 20px;border-radius:50px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;}}
-  .share-btn:hover{{transform:translateY(-1px);box-shadow:0 6px 20px rgba(250,225,0,.3);}}
+  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+  body {{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    min-height: 100vh;
+    padding: 0 0 64px;
+    -webkit-font-smoothing: antialiased;
+  }}
+  .header {{
+    padding: 40px 24px 28px;
+    border-bottom: 0.5px solid var(--border-md);
+    background: var(--surface);
+  }}
+  .date-tag {{
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: var(--hint);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }}
+  .title {{
+    font-size: clamp(24px, 5vw, 34px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    color: var(--text);
+  }}
+  .title span {{ color: var(--c1); }}
+  .subtitle {{
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+  }}
+  .section {{
+    padding: 24px 24px 0;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp .45s forwards;
+  }}
+  .section:nth-child(2) {{ animation-delay: .05s; }}
+  .section:nth-child(3) {{ animation-delay: .12s; }}
+  .section:nth-child(4) {{ animation-delay: .19s; }}
+  .section:nth-child(5) {{ animation-delay: .26s; }}
+  @keyframes fadeUp {{ to {{ opacity: 1; transform: none; }} }}
+  .cat-header {{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }}
+  .cat-dot {{
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }}
+  .cat-label {{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .04em;
+  }}
+  .cat-line {{
+    flex: 1;
+    height: 0.5px;
+    background: var(--border-md);
+  }}
+  .cards {{ display: flex; flex-direction: column; gap: 2px; }}
+  .card {{
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 0 12px;
+    transition: background .15s, border-color .15s;
+    cursor: default;
+  }}
+  .card:hover {{
+    background: #fafaf7;
+    border-color: var(--border-md);
+  }}
+  .card-num {{
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--hint);
+    line-height: 1;
+    padding-top: 2px;
+    text-align: right;
+  }}
+  .card-title {{
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.55;
+    margin-bottom: 4px;
+    color: var(--text);
+  }}
+  .card-summary {{
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-weight: 400;
+  }}
+  .card-summary::before {{
+    content: '→ ';
+    font-family: 'DM Mono', monospace;
+    color: var(--hint);
+  }}
+  .footer {{
+    margin: 32px 24px 0;
+    padding-top: 20px;
+    border-top: 0.5px solid var(--border-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }}
+  .footer-left {{
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--hint);
+    letter-spacing: .08em;
+  }}
+  .share-btn {{
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    background: var(--surface);
+    border: 0.5px solid var(--border-md);
+    border-radius: var(--radius);
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: background .15s, border-color .15s;
+  }}
+  .share-btn:hover {{
+    background: #f0efe9;
+    border-color: rgba(0,0,0,0.2);
+  }}
 </style>
 </head>
 <body>
+
 <div class="header">
   <div class="date-tag">AI BRIEFING FOR WORKERS · {date_str} {day_str}</div>
-  <h1>직장인<br><span>AI 브리핑</span></h1>
+  <div class="title">직장인 <span>AI 브리핑</span></div>
   <div class="subtitle">AI 신기술 · 업무자동화 · AI마케팅 · AI툴 최신 뉴스 12선</div>
 </div>
 
@@ -183,6 +306,7 @@ html = f"""<!DOCTYPE html>
   <div class="footer-left">AUTO-GENERATED · POWERED BY CLAUDE AI</div>
   <button class="share-btn" onclick="copyLink()">🔗 링크 복사</button>
 </div>
+
 <script>
   function copyLink() {{
     navigator.clipboard.writeText(window.location.href).then(() => {{
