@@ -75,21 +75,9 @@
     gap: 8px;
     margin-bottom: 10px;
   }
-  .cat-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .cat-label {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: .04em;
-  }
-  .cat-line {
-    flex: 1;
-    height: 0.5px;
-    background: var(--border-md);
-  }
+  .cat-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .cat-label { font-size: 12px; font-weight: 500; letter-spacing: .04em; }
+  .cat-line { flex: 1; height: 0.5px; background: var(--border-md); }
   .cards { display: flex; flex-direction: column; gap: 2px; }
   .card {
     background: var(--surface);
@@ -100,7 +88,6 @@
     grid-template-columns: 30px 1fr;
     gap: 0 12px;
     transition: background .15s, border-color .15s;
-    cursor: default;
   }
   .card:hover {
     background: #fafaf7;
@@ -112,15 +99,23 @@
     font-weight: 500;
     color: var(--hint);
     line-height: 1;
-    padding-top: 2px;
+    padding-top: 3px;
     text-align: right;
   }
-  .card-title {
+  a.card-title {
+    display: block;
     font-size: 13px;
     font-weight: 700;
     line-height: 1.55;
     margin-bottom: 4px;
     color: var(--text);
+    text-decoration: none;
+    transition: color .15s;
+  }
+  a.card-title:hover {
+    color: var(--c2);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
   .card-summary {
     font-size: 12px;
@@ -185,22 +180,22 @@
     <div class="card">
       <div class="card-num">01</div>
       <div>
-        <div class="card-title">오픈AI 차세대 AI 모델 'GPT-5.4' 공개, '도구가 아닌 AI 직원' 시대 서막</div>
-        <div class="card-summary">GPT-5.4는 추론형 LLM의 발전을 보여주며 2026년 AI 에이전트가 실제 업무의 주축이 되는 원년으로 평가됨</div>
+        <a class="card-title" href="https://www.cliktoday.com/2026/04/20260403-today-news.html" target="_blank" rel="noopener noreferrer">인공지능 반도체 수출 역대 최대 기록 달성</a>
+        <div class="card-summary">AI 반도체 수요 급증으로 3월 수출액 300억 달러 돌파, 월별 역대 최대치 경신</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">02</div>
       <div>
-        <div class="card-title">엔비디아 AI, 1조 달러 시대로...젠슨 황이 GTC 2026에서 던진 승부수</div>
-        <div class="card-summary">GTC 2026에서 피지컬 AI와 에이전틱 AI 등 차세대 AI반도체 기술 공개로 AI 칩 시장 재편 예고</div>
+        <a class="card-title" href="https://news.sktelecom.com/218116" target="_blank" rel="noopener noreferrer">2026년 AI 에이전트 상용화 원년 선언</a>
+        <div class="card-summary">SKT가 전망한 5가지 키워드로 AI가 스스로 판단하고 업무를 수행하는 에이전틱 AI 시대 본격 개막</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">03</div>
       <div>
-        <div class="card-title">IBM, 2026년 양자 컴퓨터 첫 성능 우위 달성 예상...약물·금융 분야 돌파구</div>
-        <div class="card-summary">IBM이 2026년을 양자 컴퓨터가 기존 컴퓨터를 처음 넘어서는 시점으로 발표, 복잡한 산업 문제 해결 가능</div>
+        <a class="card-title" href="https://m.korea.kr/briefing/pressReleaseView.do?newsId=156752582&pWise=mSub&pWiseSub=C7" target="_blank" rel="noopener noreferrer">정부 국방AI 활용 아이디어 경연대회 성료</a>
+        <div class="card-summary">드론 공격 대응 'MIRAGE-K' AI 위장·기만 배치 플래너가 최우수상 수상</div>
       </div>
     </div></div>
 </div>
@@ -215,22 +210,22 @@
     <div class="card">
       <div class="card-num">04</div>
       <div>
-        <div class="card-title">2026년 DevOps 혁신, AI 에이전트가 운영 의사결정까지 맡는 지능형 자동화</div>
-        <div class="card-summary">Kubiya AI 등 지능형 DevOps 자동화로 운영 데이터 기반 자율 의사결정과 파이프라인 최적화 실현</div>
+        <a class="card-title" href="https://startuprecipe.co.kr/archives/5812004" target="_blank" rel="noopener noreferrer">딥핑소스, 공간 AI 에이전트 'SAAI' 출시로 매장 운영 자동화</a>
+        <div class="card-summary">매출 30-40% 증가, 인건비 최대 3명분 절감, 폐기율 90% 감소 효과 입증</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">05</div>
       <div>
-        <div class="card-title">딩고, AI 숏폼 생성 도구로 제작비 35% 절감...콘텐츠 제작 시간 대폭 단축</div>
-        <div class="card-summary">기존 영상에서 하이라이트 구간 자동 추출해 템플릿 기반 숏폼 제작으로 효율성과 생산량 증대</div>
+        <a class="card-title" href="https://blog.ai.dmomo.co.kr/tech/21938" target="_blank" rel="noopener noreferrer">DevOps 혁신, AI 기반 운영 자동화로 효율 5배 향상</a>
+        <div class="card-summary">2026년 AI가 운영 의사결정까지 맡는 지능형 자동화로 업무 효율성 극대화</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">06</div>
       <div>
-        <div class="card-title">매출채권 자동화로 CFO들 현금흐름 최적화...AI·머신러닝 기반 수금 프로세스</div>
-        <div class="card-summary">AI 기반 송장 발행부터 수금까지 전체 주문-현금화 워크플로 자동화로 DSO 감소와 운전자본 효율성 향상</div>
+        <a class="card-title" href="https://startuprecipe.co.kr/archives/5812004" target="_blank" rel="noopener noreferrer">임팩트 분야 AX 추진 경험 공유 모임 개최</a>
+        <div class="card-summary">실무자 4명이 자동화 도구 활용, 업무 자동화, DT에서 AX 전환 실전 사례 발표</div>
       </div>
     </div></div>
 </div>
@@ -245,22 +240,22 @@
     <div class="card">
       <div class="card-num">07</div>
       <div>
-        <div class="card-title">2026 AI SEO 마케팅, 키워드 확장부터 콘텐츠 자동화까지 시스템 운영</div>
-        <div class="card-summary">AI가 수백~수천 개 연관 키워드 기반 주제 확장과 콘텐츠 구조 자동 생성으로 SEO 효율성 극대화</div>
+        <a class="card-title" href="https://aimkt.biz/2026%eb%85%84-%eb%a7%88%ec%bc%80%ed%8c%85-%ed%8a%b8%eb%a0%8c%eb%93%9c-%eb%b3%b4%ea%b3%a0%ec%84%9c-%ec%b4%9d%ec%a0%95%eb%a6%ac/" target="_blank" rel="noopener noreferrer">2026년 마케팅 트렌드: AI 프로듀싱과 GEO 최적화 부상</a>
+        <div class="card-summary">AI 기반 콘텐츠 제작 공정 자동화와 생성형 검색엔진 최적화가 핵심 전략으로 등장</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">08</div>
       <div>
-        <div class="card-title">답변 엔진 최적화(AEO) 부상...검색결과 상단 노출에서 AI 답변 인용으로 전환</div>
-        <div class="card-summary">ChatGPT, Perplexity 등 AI 검색엔진 확산으로 기존 SEO에서 AI 답변 최적화(GEO)로 마케팅 전략 변화</div>
+        <a class="card-title" href="https://openads.co.kr/content/contentDetail?contsId=17722" target="_blank" rel="noopener noreferrer">Meta, 2026년까지 AI 기반 광고 전 과정 자동화 완성</a>
+        <div class="card-summary">제품 이미지와 예산만 입력하면 광고 제작, 타겟팅, 성과 분석까지 AI가 수행</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">09</div>
       <div>
-        <div class="card-title">숏폼 비디오 커머스 본격 확장...도달을 넘어 구매까지 직접 연결하는 구조</div>
-        <div class="card-summary">플랫폼 내 콘텐츠-상품태그-결제-추천 완결 시스템으로 숏폼이 미니 세일즈 퍼널 역할 수행</div>
+        <a class="card-title" href="https://imweb.me/blog?idx=432" target="_blank" rel="noopener noreferrer">SEO에서 GEO로 패러다임 전환</a>
+        <div class="card-summary">ChatGPT, Perplexity 등 생성형 AI 답변에 브랜드 정보가 인용되도록 하는 최적화 전략 중요</div>
       </div>
     </div></div>
 </div>
@@ -275,22 +270,22 @@
     <div class="card">
       <div class="card-num">10</div>
       <div>
-        <div class="card-title">ChatGPT vs Claude vs Copilot vs Gemini 2026 비교, 용도별 특화 전략 필요</div>
-        <div class="card-summary">ChatGPT는 범용성, Claude는 코딩·글쓰기, Copilot은 MS365 통합, Gemini는 구글 생태계에서 각각 강점</div>
+        <a class="card-title" href="https://www.clien.net/service/board/use/18956983" target="_blank" rel="noopener noreferrer">2026년 AI 모델 4대 천왕 경쟁 구도 분석</a>
+        <div class="card-summary">ChatGPT, Claude, Gemini, Grok 각각 고유한 강점으로 차별화, 용도별 최적 선택 중요</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">11</div>
       <div>
-        <div class="card-title">Claude Opus 4.6, 100만 토큰 컨텍스트로 코딩 벤치마크 선두...Cursor AI 채택</div>
-        <div class="card-summary">업계 최고 코딩 성능(65.4% Terminal-Bench)과 대용량 문서 처리 능력으로 개발자 도구 시장 선점</div>
+        <a class="card-title" href="https://www.agent-hub.kr/ko/news/2026-03-28-gemini-chatbot-switching-tools-chat-transfer" target="_blank" rel="noopener noreferrer">구글 Gemini, ChatGPT·Claude 대화 이전 기능 출시</a>
+        <div class="card-summary">기존 AI 챗봇 사용 이력을 통째로 가져와 학습 데이터 재활용할 수 있는 스위칭 툴 공개</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">12</div>
       <div>
-        <div class="card-title">Microsoft 365 사용자 90%가 모르는 무료 Copilot 기능...유료 전환 전 확인 필수</div>
-        <div class="card-summary">기본 Microsoft 365 구독에 포함된 제한적 Copilot 기능으로 이메일 작성, 문서 요약, 공식 생성 등 가능</div>
+        <a class="card-title" href="https://www.myaegiswealth.com/rankings" target="_blank" rel="noopener noreferrer">2026년 AI 성능 순위와 활용 가이드</a>
+        <div class="card-summary">Artificial Analysis 기준 코딩, 추론, 속도별 성능 비교와 실사용자 후기 종합 분석</div>
       </div>
     </div></div>
 </div>
