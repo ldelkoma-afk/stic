@@ -25,6 +25,7 @@ response = client.messages.create(
 - 제목과 요약은 반드시 한국어로 작성
 - 오늘 날짜({date_str}) 기준 최신 기사 우선
 - 직장인이 실무에 바로 활용할 수 있는 내용 위주
+- url은 반드시 실제 기사 페이지의 전체 URL을 포함할 것 (https://로 시작하는 실제 링크)
 
 카테고리 4개:
 1. ai_trend: AI 신기술 동향 (최신 AI 모델·툴 출시 및 업데이트 소식)
@@ -35,24 +36,24 @@ response = client.messages.create(
 JSON 형식:
 {{
   "ai_trend": [
-    {{"title": "제목", "summary": "한줄요약"}},
-    {{"title": "제목", "summary": "한줄요약"}},
-    {{"title": "제목", "summary": "한줄요약"}}
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}},
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}},
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}}
   ],
   "automation": [
-    {{"title": "제목", "summary": "한줄요약"}},
-    {{"title": "제목", "summary": "한줄요약"}},
-    {{"title": "제목", "summary": "한줄요약"}}
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}},
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}},
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}}
   ],
   "ai_marketing": [
-    {{"title": "제목", "summary": "한줄요약"}},
-    {{"title": "제목", "summary": "한줄요약"}},
-    {{"title": "제목", "summary": "한줄요약"}}
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}},
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}},
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}}
   ],
   "ai_tools": [
-    {{"title": "제목", "summary": "한줄요약"}},
-    {{"title": "제목", "summary": "한줄요약"}},
-    {{"title": "제목", "summary": "한줄요약"}}
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}},
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}},
+    {{"title": "제목", "summary": "한줄요약", "url": "https://..."}}
   ]
 }}"""
     }]
@@ -79,11 +80,15 @@ def make_cards(items, start_num):
     html = ""
     for i, item in enumerate(items):
         num = str(start_num + i).zfill(2)
+        url = item.get('url', '#')
+        # url이 없거나 잘못된 경우 대비
+        if not url or not url.startswith('http'):
+            url = '#'
         html += f"""
     <div class="card">
       <div class="card-num">{num}</div>
       <div>
-        <div class="card-title">{item['title']}</div>
+        <a class="card-title" href="{url}" target="_blank" rel="noopener noreferrer">{item['title']}</a>
         <div class="card-summary">{item['summary']}</div>
       </div>
     </div>"""
@@ -166,21 +171,9 @@ html = f"""<!DOCTYPE html>
     gap: 8px;
     margin-bottom: 10px;
   }}
-  .cat-dot {{
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }}
-  .cat-label {{
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: .04em;
-  }}
-  .cat-line {{
-    flex: 1;
-    height: 0.5px;
-    background: var(--border-md);
-  }}
+  .cat-dot {{ width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }}
+  .cat-label {{ font-size: 12px; font-weight: 500; letter-spacing: .04em; }}
+  .cat-line {{ flex: 1; height: 0.5px; background: var(--border-md); }}
   .cards {{ display: flex; flex-direction: column; gap: 2px; }}
   .card {{
     background: var(--surface);
@@ -191,7 +184,6 @@ html = f"""<!DOCTYPE html>
     grid-template-columns: 30px 1fr;
     gap: 0 12px;
     transition: background .15s, border-color .15s;
-    cursor: default;
   }}
   .card:hover {{
     background: #fafaf7;
@@ -203,15 +195,23 @@ html = f"""<!DOCTYPE html>
     font-weight: 500;
     color: var(--hint);
     line-height: 1;
-    padding-top: 2px;
+    padding-top: 3px;
     text-align: right;
   }}
-  .card-title {{
+  a.card-title {{
+    display: block;
     font-size: 13px;
     font-weight: 700;
     line-height: 1.55;
     margin-bottom: 4px;
     color: var(--text);
+    text-decoration: none;
+    transition: color .15s;
+  }}
+  a.card-title:hover {{
+    color: var(--c2);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }}
   .card-summary {{
     font-size: 12px;
