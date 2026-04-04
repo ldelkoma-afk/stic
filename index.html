@@ -3,205 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📰 오늘의 뉴스 브리핑 · 2026.03.17</title>
-<meta property="og:title" content="📰 오늘의 뉴스 브리핑 · 2026.03.17">
+<title>📰 오늘의 뉴스 브리핑 · 2026.04.04</title>
+<meta property="og:title" content="📰 오늘의 뉴스 브리핑 · 2026.04.04">
 <meta property="og:description" content="AI · 유튜브 · 마케팅 최신 뉴스 9선">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=DM+Mono:wght@400;500&display=swap');
-
   :root {
-    --bg: #0f0e0c;
-    --card: #1a1916;
-    --border: #2e2c28;
-    --accent-ai: #f5c842;
-    --accent-yt: #ff4444;
-    --accent-mk: #4af0a0;
-    --text: #f0ece0;
-    --muted: #8a8678;
-    --num: #3a3830;
+    --bg: #0f0e0c; --card: #1a1916; --border: #2e2c28;
+    --accent-ai: #f5c842; --accent-yt: #ff4444; --accent-mk: #4af0a0;
+    --text: #f0ece0; --muted: #8a8678; --num: #3a3830;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Noto Serif KR', serif;
-    min-height: 100vh;
-    padding: 0 0 80px;
-  }
-
-  /* HEADER */
-  .header {
-    padding: 48px 24px 32px;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 240px; height: 240px;
-    background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .date-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  h1 {
-    font-size: clamp(28px, 7vw, 42px);
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
+  body { background: var(--bg); color: var(--text); font-family: 'Noto Serif KR', serif; min-height: 100vh; padding: 0 0 80px; }
+  .header { padding: 48px 24px 32px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%); pointer-events: none; }
+  .date-tag { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; }
+  h1 { font-size: clamp(28px, 7vw, 42px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
   h1 span { color: var(--accent-ai); }
-  .subtitle {
-    margin-top: 10px;
-    font-size: 14px;
-    color: var(--muted);
-    font-weight: 400;
-  }
-
-  /* CATEGORY */
-  .section {
-    padding: 32px 24px 0;
-  }
-  .cat-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-  .cat-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .cat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-  .cat-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* CARDS */
-  .cards { display: flex; flex-direction: column; gap: 2px; }
-
-  .card {
-    background: var(--card);
-    border-radius: 4px;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 0 14px;
-    transition: background 0.2s;
-    cursor: default;
-  }
-  .card:hover { background: #211f1c; }
-
-  .card-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--num);
-    line-height: 1;
-    padding-top: 2px;
-    text-align: right;
-  }
-  .card-title {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.45;
-    margin-bottom: 6px;
-  }
-  .card-summary {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-    font-weight: 400;
-  }
-  .card-summary::before {
-    content: '→ ';
-    font-family: 'DM Mono', monospace;
-  }
-
-  /* color accents per category */
-  .ai .card-num  { color: rgba(245,200,66,0.18); }
-  .ai .card:hover .card-title { color: var(--accent-ai); }
-  .yt .card-num  { color: rgba(255,68,68,0.18); }
-  .yt .card:hover .card-title { color: var(--accent-yt); }
-  .mk .card-num  { color: rgba(74,240,160,0.18); }
-  .mk .card:hover .card-title { color: var(--accent-mk); }
-
-  /* FOOTER */
-  .footer {
-    margin: 40px 24px 0;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .footer-left {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-  .share-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #FAE100;
-    color: #3A1D1D;
-    font-family: 'Noto Serif KR', serif;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .share-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(250,225,0,0.3);
-  }
-  .share-btn svg { width: 18px; height: 18px; }
-
-  /* FADE IN */
-  .section { opacity: 0; transform: translateY(16px); animation: fadeUp 0.5s forwards; }
+  .subtitle { margin-top: 10px; font-size: 14px; color: var(--muted); }
+  .section { padding: 32px 24px 0; opacity: 0; transform: translateY(16px); animation: fadeUp 0.5s forwards; }
   .section:nth-child(2) { animation-delay: 0.1s; }
   .section:nth-child(3) { animation-delay: 0.2s; }
   .section:nth-child(4) { animation-delay: 0.3s; }
-  @keyframes fadeUp {
-    to { opacity: 1; transform: none; }
-  }
+  @keyframes fadeUp { to { opacity: 1; transform: none; } }
+  .cat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .cat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .cat-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .cat-line { flex: 1; height: 1px; background: var(--border); }
+  .cards { display: flex; flex-direction: column; gap: 2px; }
+  .card { background: var(--card); border-radius: 4px; padding: 20px; display: grid; grid-template-columns: 40px 1fr; gap: 0 14px; transition: background 0.2s; }
+  .card:hover { background: #211f1c; }
+  .card-num { font-family: 'DM Mono', monospace; font-size: 28px; font-weight: 500; color: var(--num); line-height: 1; padding-top: 2px; text-align: right; }
+  .card-title { font-size: 15px; font-weight: 700; line-height: 1.45; margin-bottom: 6px; }
+  .card-summary { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .card-summary::before { content: '→ '; font-family: 'DM Mono', monospace; }
+  .ai .card:hover .card-title { color: var(--accent-ai); }
+  .yt .card:hover .card-title { color: var(--accent-yt); }
+  .mk .card:hover .card-title { color: var(--accent-mk); }
+  .footer { margin: 40px 24px 0; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-left { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; }
+  .share-btn { display: inline-flex; align-items: center; gap: 8px; background: #FAE100; color: #3A1D1D; font-family: 'Noto Serif KR', serif; font-weight: 700; font-size: 14px; padding: 10px 20px; border-radius: 50px; border: none; cursor: pointer; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+  .share-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(250,225,0,0.3); }
 </style>
 </head>
 <body>
-
 <div class="header">
-  <div class="date-tag">NEWS BRIEFING · 2026.03.17 TUE</div>
+  <div class="date-tag">NEWS BRIEFING · 2026.04.04 SAT</div>
   <h1>오늘의<br><span>뉴스 브리핑</span></h1>
   <div class="subtitle">AI · 유튜브 · 마케팅 최신 뉴스 9선</div>
 </div>
 
-<!-- AI -->
 <div class="section ai">
   <div class="cat-header">
     <div class="cat-dot" style="background:var(--accent-ai)"></div>
@@ -212,28 +63,26 @@
     <div class="card">
       <div class="card-num">01</div>
       <div>
-        <div class="card-title">앤트로픽, 클로드에 대화 중 차트·그래픽 생성 기능 추가</div>
-        <div class="card-summary">AI 챗봇이 텍스트 답변을 넘어 대화 중 시각 자료까지 즉시 만들어주는 방향으로 진화 중</div>
+        <div class="card-title">Anthropic Releases Claude Mythos 5 with 10 Trillion Parameters</div>
+        <div class="card-summary">10조 파라미터의 강력한 사이버보안 및 코딩 특화 AI 모델 출시</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">02</div>
       <div>
-        <div class="card-title">오픈AI, 소라(Sora)에 영상 일관성 문제 해결할 '레퍼런스' 기능 공개</div>
-        <div class="card-summary">AI 영상 생성의 핵심 난제였던 장면 간 일관성 문제를 해결하기 위한 신기능 선보여</div>
+        <div class="card-title">Google Unveils TurboQuant Algorithm for 6x Memory Efficiency</div>
+        <div class="card-summary">대형언어모델의 메모리 사용량을 6배 줄이는 알고리즘 발표로 Apple 등에 혜택</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">03</div>
       <div>
-        <div class="card-title">구글·삼성, 스마트폰에서 AI가 앱 실행·작업 처리하는 자동화 기능 발표</div>
-        <div class="card-summary">사용자 지시 없이도 AI가 스스로 앱을 열고 복잡한 업무를 처리하는 온디바이스 AI 시대 개막</div>
+        <div class="card-title">SpaceX Acquires xAI for $250B in Record-Breaking Deal</div>
+        <div class="card-summary">일론 머스크의 xAI를 2500억 달러에 인수하는 역사적 거래 성사</div>
       </div>
-    </div>
-  </div>
+    </div></div>
 </div>
 
-<!-- 유튜브 -->
 <div class="section yt">
   <div class="cat-header">
     <div class="cat-dot" style="background:var(--accent-yt)"></div>
@@ -244,28 +93,26 @@
     <div class="card">
       <div class="card-num">04</div>
       <div>
-        <div class="card-title">유튜브 프리미엄 라이트, 한국 월 8,500원에 정식 출시</div>
-        <div class="card-summary">일반 동영상 광고만 제거한 저가형 구독 상품이 국내 출시, 유튜브 뮤직 광고는 유지됨</div>
+        <div class="card-title">YouTube Launches AI-Powered 'Best Moments' Feature for Shorts</div>
+        <div class="card-summary">AI가 라이브 스트림에서 자동으로 하이라이트를 추출해 숏츠 영상으로 제작하는 기능 출시</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">05</div>
       <div>
-        <div class="card-title">유튜브 Shorts 편집기 대폭 개선, 클립별 정밀 편집 Android 출시</div>
-        <div class="card-summary">오디오·영상·오버레이를 개별 조정하고 클립 재정렬이 가능한 인앱 편집 기능 강화</div>
+        <div class="card-title">YouTube Introduces TV-Style 24/7 Channels Starting with Coachella</div>
+        <div class="card-summary">코첼라 TV를 시작으로 24시간 연속 스트리밍 채널 서비스 도입</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">06</div>
       <div>
-        <div class="card-title">유튜브 알고리즘 개편…CTR·시청 유지율 핵심 지표로 부상</div>
-        <div class="card-summary">영상 첫 30초가 추천 여부를 좌우하며, 썸네일과 제목의 중요성이 어느 때보다 높아져</div>
+        <div class="card-title">YouTube Studio App Requires Android 11+ and iOS 17+ from Feb 2026</div>
+        <div class="card-summary">2월부터 YouTube Studio 앱 사용을 위한 최소 운영체제 요구사항 상향 조정</div>
       </div>
-    </div>
-  </div>
+    </div></div>
 </div>
 
-<!-- 마케팅 -->
 <div class="section mk">
   <div class="cat-header">
     <div class="cat-dot" style="background:var(--accent-mk)"></div>
@@ -276,52 +123,38 @@
     <div class="card">
       <div class="card-num">07</div>
       <div>
-        <div class="card-title">2026년 마케팅 핵심 키워드 'GEO(생성형 엔진 최적화)' 급부상</div>
-        <div class="card-summary">구글 AI Overview 등 AI 검색에서 브랜드 콘텐츠가 인용되도록 최적화하는 전략이 필수로</div>
+        <div class="card-title">Google AI Mode Ads Launch as Primary Placement for Conversational Commerce</div>
+        <div class="card-summary">구글 AI 모드 내에서 대화형 쇼핑 광고 형식이 실험에서 주요 배치로 전환</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">08</div>
       <div>
-        <div class="card-title">디지털 마케팅 서밋 DMS 2026, 3월 24~25일 서울 코엑스 개최</div>
-        <div class="card-summary">AI 에이전트·생성 AI가 마케팅에 미칠 영향을 글로벌 전문가들이 한자리에서 논의하는 대규모 행사</div>
+        <div class="card-title">Social Media Marketing Shifts to AI Tools Despite UK Usage Decline</div>
+        <div class="card-summary">영국 소셜미디어 사용량 감소에도 불구하고 AI 마케팅 도구 채택 급증</div>
       </div>
     </div>
     <div class="card">
       <div class="card-num">09</div>
       <div>
-        <div class="card-title">초개인화 마케팅 시장, 2026년 154억 달러 규모로 성장 전망</div>
-        <div class="card-summary">실시간 행동 데이터와 감정 신호까지 분석하는 AI 기반 초개인화가 전환율을 최대 3배 높이는 것으로 나타나</div>
+        <div class="card-title">Email Marketing Trends Focus on Hyper-Personalization and AI Automation</div>
+        <div class="card-summary">개인화 2.0과 AI 기반 자동화가 이메일 마케팅의 핵심 트렌드로 부상</div>
       </div>
-    </div>
-  </div>
+    </div></div>
 </div>
 
 <div class="footer">
-  <div class="footer-left">POWERED BY CLAUDE AI</div>
-  <a class="share-btn" href="https://kakao.com/share" onclick="shareKakao(event)">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.638 1.63 4.95 4.08 6.27l-1.04 3.87 4.5-2.97A11.7 11.7 0 0012 18c5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg>
-    카카오톡으로 공유
-  </a>
+  <div class="footer-left">AUTO-GENERATED · POWERED BY CLAUDE AI</div>
+  <button class="share-btn" onclick="copyLink()">
+    🔗 링크 복사
+  </button>
 </div>
-
 <script>
-  function shareKakao(e) {
-    e.preventDefault();
-    if (typeof Kakao !== 'undefined' && Kakao.Share) {
-      Kakao.Share.sendDefault({
-        objectType: 'text',
-        text: '📰 오늘의 뉴스 브리핑 (2026.03.17)\n\n🤖 AI · 📺 유튜브 · 📣 마케팅 최신 뉴스 9선',
-        link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
-      });
-    } else {
-      // 카카오 SDK 없을 때 - URL 복사
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        alert('링크가 복사됐어요! 카카오톡에 붙여넣기 해주세요 😊');
-      });
-    }
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      alert('링크 복사 완료! 카카오톡에 붙여넣기 하세요 😊');
+    });
   }
 </script>
-
 </body>
 </html>
